@@ -22,6 +22,9 @@ classifiers = [
 ]
 
 authors = [
+  { name = "Daniyar Kakimbekov" },
+  { name = "Ablay Abdimalinov" },
+  { name = "Kiavash Fathi" },
   { name = "Marko Ristin", email = "marko@ristin.ch" }
 ]
 
