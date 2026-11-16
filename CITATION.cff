@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Agentic AI Workflows for Predictive Maintenance at Portfolio Scale: Reproduction Code"
+type: software
+authors:
+  - given-names: Daniyar
+    family-names: Kakimbekov
+  - given-names: Ablay
+    family-names: Abdimalinov
+  - given-names: Kiavash
+    family-names: Fathi
+  - given-names: Marko
+    family-names: Ristin
+version: "0.0.1"
+license: MIT
+repository-code: "https://github.com/everypidigit/Agentic-AI-Workflows-for-Predictive-Maintenance-at-Portfolio-Scale"

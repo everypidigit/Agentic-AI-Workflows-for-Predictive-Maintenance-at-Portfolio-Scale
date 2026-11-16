@@ -1,0 +1,10 @@
+dataset,pair,disagreement_count,n_comparable
+WAGO,P1-P2,45,300
+WAGO,P1-P3,103,300
+WAGO,P2-P3,70,300
+Siemens,P1-P2,17,100
+Siemens,P1-P3,17,100
+Siemens,P2-P3,16,100
+SMC,P1-P2,28,200
+SMC,P1-P3,0,200
+SMC,P2-P3,28,200

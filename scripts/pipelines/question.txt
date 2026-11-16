@@ -1,0 +1,1 @@
+Assuming that this product or component is part of a larger production system (e.g., a robotic arm), should it be monitored for predictive maintenance, given that additional measurements from the production system are available (e.g., temperature, vibration, and frequency)?

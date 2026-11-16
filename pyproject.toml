@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdm-at-scale"
+# NOTE (mristin):
+# Do not forget to sync with __init__.py!
+version = "0.0.1"
+
+description = "Experiments for screening product portfolios for predictive maintenance (PdM) with LLMs."
+readme = "README.md"
+requires-python = ">=3.10"
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+authors = [
+  { name = "Marko Ristin", email = "marko@ristin.ch" }
+]
+
+dependencies = [
+  "pydantic>=2,<3",
+]
+
+[project.optional-dependencies]
+figures = ["matplotlib>=3.8"]
+dev = [
+  "mypy==1.18.1",
+  "ruff==0.13.0",
+]
+# NOTE (lanNo19):
+# The type stubs of numpy 2.3+ use the type statement of Python 3.12, which mypy
+# rejects with python_version = "3.10" below. Hence the upper bound on numpy.
+ablation = [
+  "numpy>=1.26,<2.3",
+  "scikit-learn>=1.4",
+  "sentence-transformers>=3.0",
+  "xgboost>=2.0",
+]
+
+[project.scripts]
+pdm-at-scale-label-smc = "pdm_at_scale.label_smc:entry_point"
+pdm-at-scale-ablation-dataset = "pdm_at_scale.xgboost_ablation.build_dataset:entry_point"
+pdm-at-scale-ablation-embed = "pdm_at_scale.xgboost_ablation.embed:entry_point"
+pdm-at-scale-ablation-split = "pdm_at_scale.xgboost_ablation.split:entry_point"
+pdm-at-scale-ablation-train = "pdm_at_scale.xgboost_ablation.train_xgboost:entry_point"
+pdm-at-scale-ablation-evaluate = "pdm_at_scale.xgboost_ablation.evaluate:entry_point"
+
+[tool.setuptools.packages.find]
+include = ["pdm_at_scale*"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["sklearn.*", "sentence_transformers.*"]
+ignore_missing_imports = true
